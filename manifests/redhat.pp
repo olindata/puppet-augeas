@@ -1,10 +1,18 @@
 class augeas::redhat inherits augeas::base {
 
-  package {
-    ["augeas", "augeas-libs"]:
-      ensure => $::augeas_version,
+  include augeas::params
+
+  package { "augeas":
+      ensure => $::augeas::params::augeas_version,
       before => File["/usr/share/augeas/lenses/contrib"],
   }
-  package { "ruby-augeas": ensure => present }
+
+  package { "augeas-libs":
+      ensure => $::augeas::params::augeas_version,
+      before => File["/usr/share/augeas/lenses/contrib"],
+  }
+  package { "ruby-augeas":
+      ensure => present
+  }
 
 }

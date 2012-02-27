@@ -1,8 +1,6 @@
 class augeas {
 
-  if ( ! $augeas_version ) {
-    $augeas_version = "present"
-  }
+  include augeas::params
 
   case $::operatingsystem {
     /RedHat|CentOS|Fedora/:   { include augeas::redhat }
