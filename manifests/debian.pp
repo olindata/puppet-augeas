@@ -4,7 +4,7 @@ class augeas::debian inherits augeas::base {
 
   # the version in Debian Lenny is 0.2.2, which is too old and buggy
   if $::lsbdistcodename == 'lenny' {
-    include apt::repo::lennybackports
+    include s_apt::lennybackports
   }
 
   package { "augeas-lenses":
