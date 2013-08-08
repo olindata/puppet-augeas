@@ -8,7 +8,7 @@
 #   ['lens_dir']     - the lens directory to use
 class augeas (
   $version = $::augeas_version,
-  $ruby_version = $augeas_ruby_version,
+  $ruby_version = $::augeas_ruby_version,
   $lens_dir = $augeas::params::lens_dir,
 ) inherits augeas::params {
 
